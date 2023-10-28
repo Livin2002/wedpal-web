@@ -1,5 +1,7 @@
 ---
 import Card from "./Card.astro";
+import Groom from "../assests/groom.png"
+import Bride from "../assests/bride-n.jpg"
 ---
 
 <div class="container">
@@ -8,8 +10,8 @@ import Card from "./Card.astro";
       <h1>About us</h1>
       <h1>Let,s Know</h1>
     </div>
-    <div class="card"><Card /></div>
-    <div class="card"><Card /></div>
+    <div class="card"><Card Title="The Groom" ImagePath={Groom} Description="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo enim, officiis voluptatibus, dignissimos dolore aperiam soluta omnis, sit possimus doloribus voluptate maiores earum eaque alias similique in. Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate quisquam dolore molestiae a architecto eum velit, maiores, adipisci hic expedita" /></div>
+    <div class="card"><Card Title="The Bride" ImagePath={Bride} Description="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo enim, officiis voluptatibus, dignissimos dolore aperiam soluta omnis, sit possimus doloribus voluptate maiores earum eaque alias similique in. Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate quisquam dolore molestiae a architecto eum velit, maiores, adipisci hic expedita" /></div>
   </div>
 </div>
 

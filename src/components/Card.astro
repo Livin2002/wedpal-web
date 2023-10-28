@@ -1,24 +1,26 @@
 ---
 import { Image } from "astro:assets";
 import Img from "../assests/groom.png";
+interface cardPorps {
+  ImagePath: string;
+  Description: string;
+  Title:string;
+}
+const { ImagePath, Description, Title } = Astro.props;
 ---
 
 <div class="card">
   <div class="circle-image">
-    <Image src={Img} alt="" />
+    <Image src={ImagePath} alt="" />
   </div>
   <div class="card-content">
     <div class="text">
-      <p>The Groom</p>
+      <p>{Title}</p>
       <hr class="hr" />
     </div>
 
     <p class="story">
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo enim,
-      officiis voluptatibus, dignissimos dolore aperiam soluta omnis, sit
-      possimus doloribus voluptate maiores earum eaque alias similique in. Lorem
-      ipsum dolor sit amet consectetur adipisicing elit. Cupiditate quisquam
-      dolore molestiae a architecto eum velit, maiores, adipisci hic expedita
+      {Description}
     </p>
   </div>
 </div>

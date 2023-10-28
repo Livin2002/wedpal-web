@@ -1,6 +1,8 @@
 ---
 import Card from "./Card.astro";
 import DetailCard from "./DetailCard.astro";
+import CermonyImg from "../assests/ceremonyImage.png";
+import ReceptionImg from "../assests/receptionImage.png";
 ---
 
 <div class="container">
@@ -20,8 +22,14 @@ import DetailCard from "./DetailCard.astro";
   </div>
 </div>
 <div class="second">
-  <DetailCard />
-  <DetailCard />
+  <DetailCard
+    ImagePath={CermonyImg}
+    Description='Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium ducimus eius illum adipisci, fugit nemo voluptas dicta at perspiciatisrem inventore harum facere repellat culpa aliquam ullam necessitatibusrerum earum.'
+  />
+  <DetailCard
+    ImagePath={ReceptionImg}
+    Description='Lorem ipsum ,dolor sit amet consectetur adipisicing elit. Praesentium ducimus eius illum adipisci, fugit nemo voluptas dicta at perspiciatis rem inventore harum facere repellat culpa aliquam ullam necessitatibusrerum earum.'
+  />
 </div>
 
 <style>

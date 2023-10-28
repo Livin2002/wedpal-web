@@ -1,18 +1,22 @@
 ---
 import { Image } from "astro:assets";
 import recep from "../assests/receptionImage.png";
+
+interface cardPorps {
+  ImagePath: string;
+  Description: string;
+}
+const { ImagePath, Description } = Astro.props;
 ---
 
 <div class="container">
   <div class="img">
-    <Image src={recep} alt="" />
+    <Image src={ImagePath} alt="" />
   </div>
   <div class="content">
     <div>
       <p style=" font-family: 'Rubik';">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam, neque
-        eum? Ducimus, deleniti dignissimos. Exercitationem architecto, sapiente
-        qui tempore officia vitae veritatis numquam atque a!
+        {Description}
       </p>
     </div>
     <div class="btn"><a href="">Know more</a></div>
