@@ -1,0 +1,66 @@
+---
+import Card from "./Card.astro";
+import DetailCard from "./DetailCard.astro";
+---
+
+<div class="container">
+  <div class="content">
+    <div class="heading">
+      <h1>Our Wedding</h1>
+      <h1>WEDDING DETAILS</h1>
+    </div>
+    <div>
+      <p style="font-family: 'Rubik';">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium
+        ducimus eius illum adipisci, fugit nemo voluptas dicta at perspiciatis
+        rem inventore harum facere repellat culpa aliquam ullam necessitatibus
+        rerum earum.
+      </p>
+    </div>
+  </div>
+</div>
+<div class="second">
+  <DetailCard />
+  <DetailCard />
+</div>
+
+<style>
+  .container {
+    background-image: url("../assests/know-bg.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    text-align: center;
+  }
+  h1 {
+    font-family: "Rubik";
+    font-size: 38px;
+  }
+
+  .heading {
+    line-height: 30px;
+    margin: 2rem 0 2rem 0;
+  }
+  .heading h1:first-child {
+    color: #ffd2cd;
+    opacity: 0.5;
+  }
+  .heading h1:nth-of-type(2) {
+    font-family: "Cinzel Decorative" !important;
+  }
+  .second {
+    background-color: #ffd2cd83;
+  }
+</style>
+
+<script></script>

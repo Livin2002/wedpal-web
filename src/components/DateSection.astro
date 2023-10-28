@@ -1,0 +1,66 @@
+---
+import { Image } from "astro:assets";
+import Countdown from "./Countdown.astro";
+import Dec from "../assests/dec.png";
+---
+
+<div class="container">
+  <div class="content">
+    <div>
+      <h1>Save the Date</h1>
+    </div>
+    <div class="dec">
+      <Image src={Dec} alt="" />
+    </div>
+
+    <div>
+      <h1>NOVEMBER 7 2023</h1>
+      <p>St. Thomas's Church, Bristol, U.K.</p>
+    </div>
+
+    <Countdown />
+  </div>
+</div>
+
+<style>
+  * {
+    font-family: "Rubik";
+    color: white;
+  }
+  .container {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../assests/timerbg.svg);
+    height: 60vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .hr {
+    height: 8px;
+    background-color: white;
+    border-radius: 10px;
+    width: 70px;
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+  }
+  .dec {
+    height: 25px;
+    width: 100%;
+    overflow: hidden;
+  }
+  img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
+</style>

@@ -1,61 +1,85 @@
 ---
-interface Props {
-	title: string;
-	body: string;
-	href: string;
-}
-
-const { href, title, body } = Astro.props;
+import { Image } from "astro:assets";
+import Img from "../assests/groom.png";
 ---
 
-<li class="link-card">
-	<a href={href}>
-		<h2>
-			{title}
-			<span>&rarr;</span>
-		</h2>
-		<p>
-			{body}
-		</p>
-	</a>
-</li>
+<div class="card">
+  <div class="circle-image">
+    <Image src={Img} alt="" />
+  </div>
+  <div class="card-content">
+    <div class="text">
+      <p>The Groom</p>
+      <hr class="hr" />
+    </div>
+
+    <p class="story">
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo enim,
+      officiis voluptatibus, dignissimos dolore aperiam soluta omnis, sit
+      possimus doloribus voluptate maiores earum eaque alias similique in. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Cupiditate quisquam
+      dolore molestiae a architecto eum velit, maiores, adipisci hic expedita
+    </p>
+  </div>
+</div>
+
 <style>
-	.link-card {
-		list-style: none;
-		display: flex;
-		padding: 1px;
-		background-color: #23262d;
-		background-image: none;
-		background-size: 400%;
-		border-radius: 7px;
-		background-position: 100%;
-		transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-		box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-	}
-	.link-card > a {
-		width: 100%;
-		text-decoration: none;
-		line-height: 1.4;
-		padding: calc(1.5rem - 1px);
-		border-radius: 8px;
-		color: white;
-		background-color: #23262d;
-		opacity: 0.8;
-	}
-	h2 {
-		margin: 0;
-		font-size: 1.25rem;
-		transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-	}
-	p {
-		margin-top: 0.5rem;
-		margin-bottom: 0;
-	}
-	.link-card:is(:hover, :focus-within) {
-		background-position: 0;
-		background-image: var(--accent-gradient);
-	}
-	.link-card:is(:hover, :focus-within) h2 {
-		color: rgb(var(--accent-light));
-	}
+  /* styles.css */
+  .card {
+    /* padding: 20px; */
+    background-color: #ffd2cd;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    position: relative;
+    border-radius: 2px;
+    margin: 0 auto;
+  }
+
+  .circle-image {
+    position: absolute;
+    top: -100px; /* Adjust this value to control how much the circle extends outside the card */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px; /* Adjust the circle's size as needed */
+    height: 200px; /* Should be equal to the circle's width to maintain a perfect circle */
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #fff; /* Match the card's background color */
+    border: 8px solid rgb(255, 255, 255);
+  }
+
+  .circle-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the entire circle */
+  }
+
+  .card-content {
+    padding: 7rem 1.5rem 1rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+  }
+  .hr {
+    height: 8px;
+    background: linear-gradient(to right, red, black);
+    border-radius: 10px;
+    width: 70px;
+  }
+  .text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 30px;
+    font-weight: 700;
+    font-size: 25px;
+  }
+  .text p {
+    color: #c70039;
+  }
+  .story {
+    font-family: "Rubik";
+    color: #777777;
+  }
 </style>

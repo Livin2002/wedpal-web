@@ -1,0 +1,42 @@
+---
+import { Image } from "astro:assets";
+import Homeimg from "../assests/img-home.svg";
+---
+
+<div class="banner">
+  <div class="content">
+    <div><h1>Rahul</h1></div>
+    <div>
+      <Image src={Homeimg} alt="" />
+      <div><h1>Priya</h1></div>
+      <div><h2>WE ARE GETTING MARRIED</h2></div>
+    </div>
+  </div>
+  <style>
+    .banner {
+      background: url("../assests/banner.jpg") no-repeat;
+      height: 100vh;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .content {
+      text-align: center;
+      margin-top: 2.5rem;
+    }
+    h1 {
+      letter-spacing: 5px;
+      color: white;
+      font-size: 32px;
+    }
+    h2 {
+      color: var(--g-text);
+      font-size: 22px;
+      letter-spacing: 3px;
+    }
+  </style>
+</div>
