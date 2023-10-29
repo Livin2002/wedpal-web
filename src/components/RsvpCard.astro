@@ -1,0 +1,94 @@
+---
+import { Image } from "astro:assets";
+import Img from "../assests/groom.png";
+interface cardPorps {
+  ImagePath: string;
+  Date: string;
+  Address: string;
+  Title: string;
+}
+const { ImagePath, Date, Address, Title } = Astro.props;
+---
+
+<div class="card">
+  <div class="circle-image">
+    <Image src={ImagePath} alt="" />
+  </div>
+  <div class="card-content">
+    <div class="text">
+      <p>{Title}</p>
+      <hr class="hr" />
+    </div>
+
+    <div class="details">
+      <p>{Date}</p>
+      <p>{Address}</p>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* styles.css */
+  .card {
+    /* padding: 20px; */
+    background-color: #ffd2cd;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    position: relative;
+    border-radius: 2px;
+    margin: 0 auto;
+  }
+
+  .circle-image {
+    position: absolute;
+    top: -100px; /* Adjust this value to control how much the circle extends outside the card */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px; /* Adjust the circle's size as needed */
+    height: 200px; /* Should be equal to the circle's width to maintain a perfect circle */
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #fff; /* Match the card's background color */
+    border: 8px solid rgb(255, 255, 255);
+  }
+
+  .circle-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the entire circle */
+  }
+
+  .card-content {
+    padding: 7rem 1.5rem 1rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+  }
+  .hr {
+    height: 8px;
+    background: linear-gradient(to right, red, black);
+    border-radius: 10px;
+    width: 70px;
+  }
+  .text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 30px;
+    font-weight: 700;
+    font-size: 25px;
+  }
+  .text p {
+    color: #c70039;
+  }
+  .details {
+    font-family: "Rubik";
+    color: #777777;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+  }
+</style>

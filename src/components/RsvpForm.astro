@@ -1,0 +1,121 @@
+---
+
+---
+
+<div>
+  <div class="contact-form">
+    <div class="heading">
+      <h1>Will you attend?</h1>
+      <p>Please reserve before November 5 2023</p>
+    </div>
+    <form
+      action="https://formspree.io/f/mbjvwelw"
+      method="POST"
+      id="contact-form"
+    >
+      <div class="input-box">
+        <label for="name">Full Name:</label>
+        <input type="text" required="true" name="name" id="name" />
+      </div>
+
+      <div class="input-box">
+        <label for="number">Phone Number:</label>
+        <input type="number" required="true" name="number" />
+      </div>
+
+      <div class="input-box">
+        <label for="email">Email:</label>
+        <textarea required="true" name="email" id="email"></textarea>
+      </div>
+
+      <div class="input-box">
+        <label for="message">Note:</label>
+        <textarea required="true" name="message" id="message"></textarea>
+      </div>
+
+      <div class="input-box">
+        <input type="submit" value="Send" name="" />
+      </div>
+    </form>
+  </div>
+</div>
+
+<style>
+  .contact-form {
+    background-color: #fff;
+    padding: 40px;
+    width: 100%;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+  .heading {
+    text-align: center;
+  }
+  .heading h1 {
+    font-weight: bold;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  .heading p {
+    font-family: "Rubik";
+    color: #333;
+    text-align: center;
+  }
+
+  .contact-form .input-box {
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .contact-form .input-box input,
+  .contact-form .input-box textarea {
+    width: 100%;
+    padding: 5px 0;
+    font-size: 16px;
+    margin: 10px 0;
+    border: none;
+    border-bottom: 2px solid #333;
+    outline: none;
+    resize: none;
+  }
+
+  .contact-form .input-box span {
+    position: absolute;
+    left: 0;
+    padding: 5px 0;
+    font-size: 16px;
+    margin: 10px 0;
+    pointer-events: none;
+    transition: 0.5s;
+    color: #666;
+  }
+
+  .contact-form .input-box input:focus ~ span,
+  .contact-form .input-box textarea:focus ~ span {
+    color: #e91e63;
+    font-size: 12px;
+    transform: translateY(-20px);
+  }
+
+  .contact-form .input-box input[type="submit"] {
+    width: 100%;
+    background: var(--btn-bg);
+    color: var(--white-color);
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 18px;
+    transition: 0.5s;
+  }
+
+  .contact-form .input-box input[type="submit"]:hover {
+    background: #fff;
+    color: var(--h1-color);
+  }
+  label {
+    color: var(--sub-color);
+  }
+</style>

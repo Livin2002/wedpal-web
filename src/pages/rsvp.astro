@@ -1,15 +1,41 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import RsvpForm from "../components/RsvpForm.astro";
+import WhenandWhere from "../components/WhenandWhere.astro";
+import Map from "../components/Map.astro";
 ---
 
-<Layout title="Watching Live">
+<Layout title="RSVP">
   <div class="container">
     <h1>RSVP</h1>
   </div>
+
+  <div class="form">
+    <RsvpForm />
+  </div>
+  <WhenandWhere />
+  <Map />
 </Layout>
 
 <style>
+  * {
+    color: white;
+  }
   .container {
-    height: 100vh;
+    height: 50vh;
+    background-image: url(../assests/banner.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .container h1 {
+    padding-top: 5rem;
+  }
+  .form {
+    padding: 1rem;
   }
 </style>
