@@ -1,0 +1,82 @@
+---
+import { Image } from "astro:assets";
+import Groom from "../assests/groom.png";
+import Bride from "../assests/bride-n.jpg";
+interface cardPorps {
+  ImagePath: string;
+  Description: string;
+  Title: string;
+}
+const { ImagePath, Description, Title } = Astro.props;
+---
+
+<div class="card">
+  <Image src={ImagePath} alt="" />
+
+  <div class="border">
+    <hr class="double-hr" />
+    <div class="text">{Title}</div>
+    <hr class="double-hr" />
+  </div>
+</div>
+
+<div class="description">
+  <p>
+    <strong>I am {Title}</strong>
+    {Description}
+  </p>
+</div>
+
+<style>
+  .card {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+  }
+
+  .card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .border {
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    border: 1px solid #ffffff;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Align content to the bottom */
+  }
+
+  .text {
+    color: white;
+    padding: 10px;
+    text-align: center;
+    /* border: 1px solid white; */
+    width: 40%;
+    margin: 0 auto; /* Center the text horizontally */
+  }
+  .double-hr {
+    border: none;
+    height: 2px; /* Adjust the height of the lines */
+    background:
+      linear-gradient(to right, #ffffff, #ffffff) no-repeat center,
+      linear-gradient(to right, #ffffff, #ffffff) no-repeat center;
+    background-size:
+      40% 2px,
+      40% 2px; /* Adjust the width of the lines and the space between them */
+  }
+  .description {
+    font-family: "Rubik";
+    line-height: 22px;
+    font-size: 16px;
+    text-align: left;
+    /* padding: 0.5rem 0; */
+  }
+</style>

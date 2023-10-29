@@ -1,10 +1,83 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Video1 from "../assests/video/test1 (1).mp4";
+import Video2 from "../assests/video/test1 (2).mp4";
+import Video3 from "../assests/video/test1 (3).mp4";
+import { Image } from "astro:assets";
+import LiveIcon from "../assests/live.svg";
+import Hcard from "../components/Hcard.astro";
+import Groom from "../assests/groom.jpg";
+import Bride from "../assests/bride-n.jpg";
 ---
 
 <Layout title="Watching Live">
   <div class="container">
-    <h1>LIVE</h1>
+    <h1>VIDEOS & LIVE</h1>
+  </div>
+
+  <div class="toggle-btn">
+    <div class="btn active" onclick="openCity('live')">LIVE</div>
+    <div class="btn" onclick="openCity('videos')">VIDEOS</div>
+  </div>
+
+  <div id="live" class="item">
+    <div class="live-container">
+      <div class="video-wrapper">
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/F4dzcwT4h20?si=8QUJ2dkd_lzH3Oq9"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="text">
+      <h2>
+        Rahul weds Priya | Streaming Live on Wedpal <span>#wedding | #R&P</span>
+      </h2>
+      <p>06-11-2023 | 12:30pm</p>
+      <Image src={LiveIcon} alt="" />
+    </div>
+    <div class="happy">
+      <div class="live-content">
+        <h1 style="font-size: 22px; text-align: center;">The Happy Couple</h1>
+        <Hcard
+          Title="Rahul"
+          ImagePath={Groom}
+          Description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur repellat quas fugit dicta, excepturi libero nesciunt placeat nihil commodi, in magni, iste cum. Officia sapiente officiis est! Quae dignissimos quod odit optio, eos dolores placeat"
+        />
+        <Hcard
+          Title="Priya"
+          ImagePath={Bride}
+          Description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur repellat quas fugit dicta, excepturi libero nesciunt placeat nihil commodi, in magni, iste cum. Officia sapiente officiis est! Quae dignissimos quod odit optio, eos dolores placeat"
+        />
+      </div>
+    </div>
+  </div>
+  <div id="videos" class="item" style="display:none">
+    <video controls>
+      <source src={Video1} />
+    </video>
+    <div class="text">
+      <h2>Rahul weds Priya | Wedding Ceremony <span>#wedding | #R&P</span></h2>
+      <p>06-11-2023 | 12:30pm</p>
+    </div>
+    <video controls>
+      <source src={Video2} />
+    </video>
+    <div class="text">
+      <h2>Rahul weds Priya | Love in Yellow <span>#wedding | #R&P</span></h2>
+      <p>06-11-2023 | 12:30pm</p>
+    </div>
+    <video controls>
+      <source src={Video3} />
+    </video>
+    <div class="text">
+      <h2>Rahul weds Priya | The love bond <span>#wedding | #R&P</span></h2>
+      <p>06-11-2023 | 12:30pm</p>
+    </div>
   </div>
 </Layout>
 
@@ -20,8 +93,103 @@ import Layout from "../layouts/Layout.astro";
     align-items: center;
     height: 50vh;
   }
+  span {
+    font-weight: 500;
+    font-size: 14px;
+    color: blue;
+  }
   .container h1 {
     padding-top: 5rem;
     color: white;
+    letter-spacing: 5px;
+  }
+  .active {
+    color: var(--btn-bg);
+    background-color: rgb(255, 255, 255);
+  }
+  .text {
+    padding: 0.5rem 0.5rem;
+    font-family: "Rubik";
+    line-height: 22px;
+  }
+  .text h2 {
+    font-weight: 400;
+    font-size: 18px;
+  }
+  .toggle-btn {
+    display: flex;
+    border-radius: 50px;
+    background-color: var(--btn-bg);
+    padding: 0.2rem;
+    width: fit-content;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem auto;
+  }
+
+  .btn {
+    flex: 1;
+    padding: 10px 20px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 20px;
+    font-size: 18px;
+    font-weight: 800;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  .video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio (h/w) */
+    height: 0;
+    overflow: hidden;
+  }
+
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  video {
+    max-width: 100%;
+    height: auto;
+  }
+  .live-content {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .happy {
+    background-attachment: fixed;
+    background-image: url(../assests/know-bg.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 2rem;
   }
 </style>
+
+<script is:inline>
+function openCity(name) {
+  var i;
+  var x = document.getElementsByClassName("item");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  document.getElementById(name).style.display = "block";
+
+  var buttons = document
+    .getElementsByClassName("toggle-btn")[0]
+    .getElementsByClassName("btn");
+
+  for (i = 0; i < buttons.length; i++) {
+    buttons[i].classList.remove("active"); // Remove the 'active' class from all buttons
+    if (buttons[i].getAttribute("onclick").includes(name)) {
+      buttons[i].classList.add("active"); // Add the 'active' class to the clicked button
+    }
+  }
+}
+</script>
