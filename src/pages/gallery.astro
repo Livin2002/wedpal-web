@@ -1,15 +1,173 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
+import Cake from "../assests/cake.jpg";
+import Bride from "../assests/bride-n.jpg";
+import Dinner from "../assests/dinner.jpg";
+import Gal1 from "../assests/gal (1).jpg";
+import Gal2 from "../assests/gal (2).jpg";
+import Gal3 from "../assests/gal (3).jpg";
+import Gal4 from "../assests/gal (4).jpg";
+import Gal5 from "../assests/gal (5).jpg";
+import Gal6 from "../assests/gal (6).jpg";
+import Gal7 from "../assests/gal (7).jpg";
+import Gal8 from "../assests/gal (8).jpg";
+import Gal9 from "../assests/gal (9).jpg";
 ---
 
 <Layout title="Gallery">
   <div class="container">
     <h1>Gallery</h1>
   </div>
+  <div class="gallery">
+    <div class="tab">
+      <button onclick="openCity('all')">ALL</button>
+      <button onclick="openCity('wedding')">WEEDING</button>
+      <button onclick="openCity('reception')">RECEPTION</button>
+      <button onclick="openCity('ceremony')">CEREMONY</button>
+    </div>
+
+    <div id="all" class="item">
+      <div class="img-container">
+        <div class="images">
+          <Image src={Gal1} alt="" />
+        </div>
+        <div class="images">
+          <Image src={Gal2} alt="" />
+        </div>
+        <div class="images">
+          <Image src={Gal3} alt="" />
+        </div>
+        <div class="images">
+          <Image src={Gal4} alt="" />
+        </div>
+        <div class="images">
+          <Image src={Gal5} alt="" />
+        </div>
+        <div class="images">
+          <Image src={Gal6} alt="" />
+        </div>
+        <div class="images">
+          <Image src={Gal7} alt="" />
+        </div>
+        <div class="images">
+          <Image src={Gal8} alt="" />
+        </div>
+        <div class="images">
+          <Image src={Gal9} alt="" />
+        </div>
+      </div>
+    </div>
+
+    <div id="reception" class="item" style="display:none">
+      <div class="img-container">
+        <div class="images">
+          <Image src={Gal1} alt="" />
+        </div>
+        <div class="images">
+          <Image src={Gal2} alt="" />
+        </div>
+        <div class="images">
+          <Image src={Gal7} alt="" />
+        </div>
+      </div>
+    </div>
+
+    <div id="wedding" class="item" style="display:none">
+      <div class="img-container">
+        <div class="images">
+          <Image src={Gal3} alt="" />
+        </div>
+        <div class="images">
+          <Image src={Gal6} alt="" />
+        </div>
+        <div class="images">
+          <Image src={Gal9} alt="" />
+        </div>
+        <div class="images">
+          <Image src={Bride} alt="" />
+        </div>
+      </div>
+    </div>
+    <div id="ceremony" class="item" style="display:none">
+      <div class="img-container">
+        <div class="images">
+          <Image src={Gal5} alt="" />
+        </div>
+        <div class="images">
+          <Image src={Gal8} alt="" />
+        </div>
+        <div class="images">
+          <Image src={Gal1} alt="" />
+        </div>
+      </div>
+    </div>
+  </div>
 </Layout>
 
 <style>
   .container {
-    height: 100vh;
+    height: 50vh;
+    background-image: url(../assests/banner.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .container h1 {
+    padding-top: 5rem;
+    color: var(--white-color);
+  }
+  .gallery {
+  }
+  .img-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+  .images {
+    width: 100%;
+    height: 300px;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  button {
+    padding: 0.8rem;
+    border: none;
+    background-color: var(--btn-bg);
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    font-family: "Cinzel Decorative";
+    letter-spacing: 2px;
+  }
+  .tab {
+    margin: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid var(--btn-bg);
+    border-radius: 5px;
   }
 </style>
+
+<script is:inline>
+function openCity(name) {
+  var i;
+  var x = document.getElementsByClassName("item");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  document.getElementById(name).style.display = "block";
+}
+</script>
