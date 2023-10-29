@@ -3,10 +3,11 @@ import { Image } from "astro:assets";
 import recep from "../assests/receptionImage.png";
 
 interface cardPorps {
+  Title: string;
   ImagePath: string;
   Description: string;
 }
-const { ImagePath, Description } = Astro.props;
+const { ImagePath, Description, Title } = Astro.props;
 ---
 
 <div class="container">
@@ -15,6 +16,7 @@ const { ImagePath, Description } = Astro.props;
   </div>
   <div class="content">
     <div>
+      <h1>{Title}</h1>
       <p style=" font-family: 'Rubik';">
         {Description}
       </p>
