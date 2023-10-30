@@ -1,0 +1,54 @@
+---
+
+---
+
+<div class="container">
+  <a href="https://wedpal.in/#contact" class="enquire-button">
+    <div class="glow">
+      <p>
+        Enquiry / <br />
+         Order
+      </p>
+    </div>
+  </a>
+</div>
+
+<style>
+  .container {
+    position: relative;
+  }
+
+  .enquire-button {
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+    padding: 0.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 10;
+    background-color: var(--btn-bg);
+    animation: fadeInOut 2.5s linear infinite;
+  }
+  .glow {
+    color: #fff;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  p {
+    font-size: 15px;
+    font-weight: 400;
+    color: white;
+  }
+  @keyframes fadeInOut {
+    0%,
+    100% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+</style>
