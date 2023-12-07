@@ -16,6 +16,10 @@
       <i class="fas fa-bars"></i>
     </div>
   </div>
+  <div class="popup" id="popup">
+    <span class="close-icon" onclick="closePopup()">X</span>
+     Website Layout exclusively tailored for mobile devices.
+  </div>
 </nav>
 
 <style>
@@ -50,6 +54,7 @@
     padding: 10px 0;
     box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1);
   }
+
   .navbar .content {
     display: flex;
     align-items: center;
@@ -66,6 +71,15 @@
   }
   .menu-list li {
     list-style: none;
+  }
+  .close-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
   }
   .menu-list li a {
     color: #fff;
@@ -102,6 +116,24 @@
     right: 30px;
     top: 20px;
   }
+  .popup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #ffffff;
+    font-weight: bold;
+    padding: 20px;
+    border-radius: 5px;
+    z-index: 1119999;
+    font-weight: bold;
+    padding: 2rem;
+    /* Add other styles as needed */
+  }
   @media (max-width: 1230px) {
     .content {
       padding: 0 60px;
@@ -120,6 +152,9 @@
   @media (max-width: 868px) {
     body.disabled {
       overflow: hidden;
+    }
+    .popup {
+      width: 80%;
     }
     .icon {
       display: block;
@@ -155,30 +190,42 @@
       margin-left: 0px;
     }
   }
+
   @media (max-width: 380px) {
     .navbar .logo a {
       font-size: 27px;
     }
+    .popup {
+      width: 80%;
+    }
   }
 </style>
 <script is:inline>
-const body = document.querySelector("body");
-const navbar = document.querySelector(".navbar");
-const menuBtn = document.querySelector(".menu-btn");
-const cancelBtn = document.querySelector(".cancel-btn");
-menuBtn.onclick = () => {
-  navbar.classList.add("show");
-  menuBtn.classList.add("hide");
-  body.classList.add("disabled");
-};
-cancelBtn.onclick = () => {
-  body.classList.remove("disabled");
-  navbar.classList.remove("show");
-  menuBtn.classList.remove("hide");
-};
-window.onscroll = () => {
-  this.scrollY > 20
-    ? navbar.classList.add("sticky")
-    : navbar.classList.remove("sticky");
-};
+  const body = document.querySelector("body");
+  const navbar = document.querySelector(".navbar");
+  const menuBtn = document.querySelector(".menu-btn");
+  const cancelBtn = document.querySelector(".cancel-btn");
+  const popup = document.getElementById("popup");
+
+  menuBtn.onclick = () => {
+    navbar.classList.add("show");
+    menuBtn.classList.add("hide");
+    body.classList.add("disabled");
+  };
+
+  cancelBtn.onclick = () => {
+    body.classList.remove("disabled");
+    navbar.classList.remove("show");
+    menuBtn.classList.remove("hide");
+  };
+
+  window.onload = () => {
+    setTimeout(() => {
+      popup.style.display = "none";
+    }, 5000); // Close the popup after 2 seconds
+  };
+  function closePopup() {
+    const popup = document.getElementById("popup");
+    popup.style.display = "none";
+  }
 </script>
